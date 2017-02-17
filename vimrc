@@ -435,9 +435,6 @@ endfunction
 " My customizations
 "
 "
-" Initialize syntastic https://github.com/vim-syntastic/syntastic
-execute pathogen#infect()
-
 " syntastic recommended settings                                                                                     
 execute pathogen#infect()
 set statusline+=%#warningmsg#
@@ -448,7 +445,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_sh_shellcheck_args = "-x"
+"let g:syntastic_sh_shellcheck_args = "-x"
 
 " salt specific per https://github.com/saltstack/salt-vim.git
 set nocompatible
