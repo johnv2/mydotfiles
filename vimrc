@@ -1,4 +1,4 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
 " Maintainer: 
 "       Amir Salihefendic
 "       http://amix.dk - amix@amix.dk
@@ -432,6 +432,9 @@ endfunction
 "endif
 "
 
+" My customizations
+"
+"
 " Initialize syntastic https://github.com/vim-syntastic/syntastic
 execute pathogen#infect()
 
@@ -445,6 +448,18 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_sh_shellcheck_args = "-x"
 
 " salt specific per https://github.com/saltstack/salt-vim.git
 set nocompatible
+
+" create ctrl-n ctr-n shortcut to show/hide line numbers
+nmap <C-N><C-N> :set invnumber<CR>
+
+" Setup powerline
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+
+" Set font used in MacVim
+set guifont=Source\ Code\ Pro\ for\ Powerline:h12
