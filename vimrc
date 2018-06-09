@@ -437,15 +437,9 @@ endfunction
 "
 " syntastic recommended settings                                                                                     
 execute pathogen#infect()
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-"let g:syntastic_sh_shellcheck_args = "-x"
+" Setup powerline
+source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
 
 " salt specific per https://github.com/saltstack/salt-vim.git
 set nocompatible
@@ -453,10 +447,9 @@ set nocompatible
 " create ctrl-n ctr-n shortcut to show/hide line numbers
 nmap <C-N><C-N> :set invnumber<CR>
 
-" Setup powerline
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
-
 " Set font used in MacVim
 set guifont=Source\ Code\ Pro\ for\ Powerline:h12
+
+" autostart NERDTree
+" autocmd VimEnter * NERDTree
+" autocmd VimEnter * wincmd p

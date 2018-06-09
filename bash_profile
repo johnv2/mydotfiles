@@ -1,30 +1,24 @@
 #!/usr/bin/env bash
 
-#
-if [ -f ~/.bashrc ]; then 
-    source ~/.bashrc 
-fi
-
 # Path to the bash it configuration
-export BASH_IT="/Users/jdoshier/bash-it"
+export BASH_IT="/Users/jdoshier/github/bash-it"
 
 # Lock and Load a custom theme file
 # location /.bash_it/themes/
-export BASH_IT_THEME='powerline'
+export BASH_IT_THEME='bobby'
 
 # (Advanced): Change this to the name of your remote repo if you
 # cloned bash-it with a remote other than origin such as `bash-it`.
 # export BASH_IT_REMOTE='bash-it'
 
 # Your place for hosting Git repos. I use this for private repos.
-export GIT_HOSTING='johnv2@github.com'
+export GIT_HOSTING='git@git.domain.com'
 
 # Don't check mail when opening terminal.
 unset MAILCHECK
 
 # Change this to your console based IRC client of choice.
 export IRC_CLIENT='irssi'
-export IRCNAME=''
 
 # Set this to the command you use for todo.txt-cli
 export TODO="t"
@@ -37,9 +31,29 @@ export SCM_CHECK=true
 # Will otherwise fall back on $HOSTNAME.
 export SHORT_HOSTNAME=$(hostname -s)
 
+# Set Xterm/screen/Tmux title with only a short username.
+# Uncomment this (or set SHORT_USER to something else),
+# Will otherwise fall back on $USER.
+export SHORT_USER=${USER:0:8}
+
+# Set Xterm/screen/Tmux title with shortened command and directory.
+# Uncomment this to set.
+export SHORT_TERM_LINE=true
+
+# Set vcprompt executable path for scm advance info in prompt (demula theme)
+# https://github.com/djl/vcprompt
+#export VCPROMPT_EXECUTABLE=~/.vcprompt/bin/vcprompt
+
 # (Advanced): Uncomment this to make Bash-it reload itself automatically
 # after enabling or disabling aliases, plugins, and completions.
-export BASH_IT_AUTOMATIC_RELOAD_AFTER_CONFIG_CHANGE=1
+# export BASH_IT_AUTOMATIC_RELOAD_AFTER_CONFIG_CHANGE=1
+
+# Uncomment this to make Bash-it create alias reload.
+# export BASH_IT_RELOAD_LEGACY=1
 
 # Load Bash It
-source $BASH_IT/bash_it.sh
+source "$BASH_IT"/bash_it.sh
+
+if [ -f $HOME/.bashrc ]; then
+        source $HOME/.bashrc
+fi
