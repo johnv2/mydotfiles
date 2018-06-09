@@ -3,3 +3,6 @@ if [ -f /usr/local/share/bash-completion/bash_completion ]; then
 fi
 
 export PATH=$HOME/bin:/usr/local/sbin:$PATH
+
+export EDITOR=vim
+export GIT_EDITOR=vim
