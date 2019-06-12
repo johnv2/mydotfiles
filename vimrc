@@ -435,23 +435,8 @@ endif
 " My customizations
 "
 "
-" Setup pathogen
-execute pathogen#infect()
-
 " Setup powerline
-source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
-
-" Setup Vundle
-set nocompatible
-filetype off
-syntax enable
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+source ~/Library/Python/3.7/lib/python/site-packages/powerline/bindings/vim/plugin/powerline.vim
 
 " Create ctrl-n ctr-n shortcut to show/hide line numbers
 nmap <C-N><C-N> :set invnumber<CR>
@@ -460,27 +445,28 @@ nmap <C-N><C-N> :set invnumber<CR>
 set guifont=Source\ Code\ Pro\ for\ Powerline:h12
 
 " Autostart NERDTree with focus on primary window
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
+"autocmd VimEnter * NERDTree
+"autocmd VimEnter * wincmd p
 " Close VIM if NERDTree is the only window open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"let NERDTreeMinimalUI = 1
+"let NERDTreeDirArrows = 1
 
 " Enable docstring preview in fold text
 let g:SimpylFold_docstring_preview = 1
+
 " Map space key to zA in normal mode to fold/unfold
 nnoremap <space> zA
 
 "Plugin 'Valloric/YouCompleteMe'
 " YouCompleteMe and UltiSnips compatibility, with the helper of supertab
-let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
-let g:ycm_autoclose_preview_window_after_insertion = 1
+"et g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
+"et g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
+"et g:ycm_autoclose_preview_window_after_insertion = 1
 
 "Plugin 'ervandew/supertab'
-let g:SuperTabDefaultCompletionType    = '<C-n>'
-let g:SuperTabCrMapping                = 0
+"et g:SuperTabDefaultCompletionType    = '<C-n>'
+"et g:SuperTabCrMapping                = 0
 
 "Plugin 'SirVer/ultisnips'
 "let g:UltiSnipsExpandTrigger="<tab>"
@@ -490,3 +476,12 @@ let g:SuperTabCrMapping                = 0
 " Easy tab navigation
 nnoremap H gT
 nnoremap L gt
+
+" Put these lines at the very end of your vimrc file.
+"
+" " Load all plugins now.
+" " Plugins need to be added to runtimepath before helptags can be generated.
+packloadall
+" " Load all of the helptags now, after plugins have been loaded.
+" " All messages and errors will be ignored.
+silent! helptags ALL
